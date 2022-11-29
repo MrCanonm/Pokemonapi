@@ -8,8 +8,16 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'pokemon-api',
     pathMatch: 'full'
+  },
+  {
+    path: 'pokemon-api',
+    loadChildren: () => import('./pokemon-api/pokemon-api.module').then( m => m.PokemonApiPageModule)
+  },
+  {
+    path: 'profile/:name',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
 ];
 
